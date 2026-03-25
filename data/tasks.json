@@ -1,0 +1,19 @@
+{
+  "tasks": {
+    "planting": ["plant_wheat", "plant_carrots", "plant_potatoes", "plant_sugar_cane", "plant_melon", "plant_pumpkin", "irrigate_farm", "analyze_soil"],
+    "harvesting": ["harvest_wheat", "harvest_carrots", "harvest_fish"],
+    "breeding": ["breed_animals", "collect_wool", "feed_animals", "herd_sheep", "check_pen"],
+    "mining": ["mine_coal", "mine_iron", "mine_diamonds", "dig_tunnel", "quarry"],
+    "building": ["build_pond", "repair_canal", "build_pen", "plan_layout"],
+    "exploring": ["explore_terrain", "find_resources", "scout_biome", "map_area", "map_terrain", "scout_from_above", "spot_threats", "find_structures", "patrol_perimeter", "alert_threats"],
+    "crafting": ["craft_bread", "craft_tools"],
+    "organizing": ["haul_items", "organize_chests", "sort_inventory", "deliver_supplies", "morning_routine", "check_time"]
+  },
+  "chains": [
+    ["plant_wheat", "harvest_wheat", "craft_bread"],
+    ["plant_carrots", "harvest_carrots"],
+    ["explore_terrain", "find_resources"],
+    ["mine_iron", "craft_tools"],
+    ["patrol_perimeter", "spot_threats"]
+  ]
+}
