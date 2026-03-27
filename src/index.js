@@ -17,6 +17,9 @@ export { EvolutionEngine } from './evolution.js';
 export { TASKS, getTask, allTasks, getTasksByCategory, buildChain } from './farm-tasks.js';
 export { analyzeTask, assignTask, learnFromOutcome } from './routing.js';
 export { startDashboard } from './dashboard.js';
+export { SimulationRunner, SimulationConfig, runFromCLI as runSimulationCLI } from './simulation.js';
+export { Dashboard, renderFitnessChart, renderTraits, renderComparison } from './visualization.js';
+export { ExperimentRunner, ExperimentResults, runFromCLI as runExperimentsCLI } from './experiments.js';
 
 /**
  * Register ranch features with CraftMind Core.
