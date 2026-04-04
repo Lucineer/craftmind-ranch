@@ -1,123 +1,55 @@
-# 🌾 CraftMind Ranch
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Lucineer/capitaine/master/docs/capitaine-logo.jpg" alt="Capitaine" width="120">
+</p>
 
-> Genetic evolution engine for Minecraft animals — breed the perfect farm workforce.
+<h1 align="center">craftmind-ranch</h1>
 
-## Features
+<p align="center">AI Ranch-inspired Minecraft mod — self-evolving bot species.</p>
 
-- **8 Species** — Mooshroom, Duck, Goat, Shepherd, Stallion, Falcon, Trufflehog, Rooster
-- **DNA System** — Genetic traits (speed, patience, strength, intelligence) with crossover
-- **Mutation Engine** — Random genetic variation with configurable rates
-- **Fitness Evaluation** — Multi-category scoring for breeding decisions
-- **Population Management** — Extinction protection and population caps
-- **Evolution Engine** — Run generations of selective breeding
-- **43 Farm Tasks** — Across categories (harvesting, herding, scouting, etc.)
-- **Smart Routing** — Assign tasks to best-fit animals based on DNA
+---
 
-## Quick Start
+**CraftMind ecosystem** · Part of the [Lucineer fleet](https://github.com/orgs/Lucineer/repositories)
 
-```bash
-npm install
-node examples/demo.js    # Run standalone demo
-node scripts/playtest.js # Simulated plugin test
-npm test                 # Run test suite (38 tests)
-```
+## The Fleet
 
-## API Documentation
 
-### DNA (`src/dna.js`)
-| Function | Description |
-|---|---|
-| `createDNA(speciesId, overrides)` | Create new DNA with random traits |
-| `crossoverDNA(parentA, parentB, speciesId)` | Breed two parents |
-| `mutateDNA(dna)` | Apply random mutations |
-| `dnaToMarkdown(dna)` | Generate DNA report |
+<details>
+<summary><strong>⚓ The Fleet</strong></summary>
 
-### Species (`src/species.js`)
-| Function | Description |
-|---|---|
-| `allSpecies()` | Get all 8 species configs |
-| `getSpecies(id)` | Look up species by ID |
+**Flagship vessels**
 
-### Evolution (`src/evolution.js`)
-| Class/Method | Description |
-|---|---|
-| `new EvolutionEngine(population)` | Create evolution runner |
-| `engine.evolve()` | Run one generation |
+- [cocapn.ai](https://github.com/Lucineer/capitaine)
+- [personallog.ai](https://github.com/Lucineer/personallog-ai)
+- [businesslog.ai](https://github.com/Lucineer/businesslog-ai)
+- [studylog.ai](https://github.com/Lucineer/studylog-ai)
+- [makerlog.ai](https://github.com/Lucineer/makerlog-ai)
+- [playerlog.ai](https://github.com/Lucineer/playerlog-ai)
+- [dmlog.ai](https://github.com/Lucineer/dmlog-ai)
+- [reallog.ai](https://github.com/Lucineer/reallog-ai)
+- [deckboss.ai](https://github.com/Lucineer/deckboss-ai)
 
-### Tasks (`src/farm-tasks.js`)
-| Export | Description |
-|---|---|
-| `TASKS` | 43 task definitions |
-| `getTasksByCategory(cat)` | Filter tasks |
-| `buildChain(category)` | Build task dependency chain |
+**Fleet services**
 
-### Routing (`src/routing.js`)
-| Function | Description |
-|---|---|
-| `analyzeTask(task)` | Get task requirements |
-| `assignTask(task, candidates)` | Best-fit assignment |
+- [Fleet Catalog](https://github.com/Lucineer/capitaine/blob/master/docs/fleet/FLEET.md)
+- [Git Agent (full)](https://github.com/Lucineer/git-agent)
+- [Cocapn Lite (minimal)](https://github.com/Lucineer/cocapn-lite)
+- [Fleet Orchestrator](https://github.com/Lucineer/fleet-orchestrator)
+- [Dead Reckoning Engine](https://github.com/Lucineer/dead-reckoning-engine)
+- [Dream Engine](https://github.com/Lucineer/dream-engine)
+- [Seed UI (5 layers)](https://github.com/Lucineer/seed-ui)
 
-## Plugin Integration
+**For power users**
 
-```js
-import { registerWithCore } from 'craftmind-ranch';
-registerWithCore(core); // Registers as 'ranch' plugin
-```
+- [Cocapn Lite (tabula rasa)](https://github.com/Lucineer/cocapn-lite)
+- [Cocapn (core platform)](https://github.com/Lucineer/cocapn)
+- [ZeroClaw (framework)](https://github.com/Lucineer/zeroclaw)
 
-## Architecture
+[View all 106 repos →](https://github.com/orgs/Lucineer/repositories)
+[Fleet manifest →](https://github.com/Lucineer/capitaine/blob/master/docs/fleet/FLEET.md)
 
-```
-┌──────────────────────────────────────────────────┐
-│                CraftMind Ranch                    │
-├──────────────────────────────────────────────────┤
-│  ┌──────────┐  ┌───────────┐  ┌──────────────┐ │
-│  │ Species  │  │   DNA     │  │  Population  │ │
-│  │ Catalog  │→ │  Engine   │→ │  Manager     │ │
-│  │ (8 types)│  │(breed/mut)│  │ (caps/ctrl)  │ │
-│  └────┬─────┘  └─────┬─────┘  └──────┬───────┘ │
-│       │              │               │         │
-│       ▼              ▼               ▼         │
-│  ┌──────────────────────────────────────────┐   │
-│  │         Evolution Pipeline               │   │
-│  │  Create → Breed → Mutate → Fitness → Evolve│  │
-│  └──────────────────┬───────────────────────┘   │
-│                     │                           │
-│  ┌──────────┐ ┌─────┴──────┐ ┌────────────┐   │
-│  │ Fitness  │ │   Task     │ │  Routing   │   │
-│  │ Evaluator│ │  System    │ │  Engine    │   │
-│  │          │ │  (43 task) │ │(best-fit)  │   │
-│  └──────────┘ └────────────┘ └────────────┘   │
-├──────────────────────────────────────────────────┤
-│              registerWithCore(core)              │
-└──────────────────────────────────────────────────┘
-```
+</details>
 
-## Testing
-
-```bash
-npm test          # 38 tests
-node examples/demo.js
-node scripts/playtest.js
-```
-
-## Roadmap
-
-See [ROADMAP.md](./ROADMAP.md) for detailed plans.
-
-## CraftMind Ecosystem
-
-| Repo | Description |
-|------|-------------|
-| [craftmind](https://github.com/CedarBeach2019/craftmind) | 🤖 Core bot framework |
-| [craftmind-fishing](https://github.com/CedarBeach2019/craftmind-fishing) | 🎣 Sitka Sound fishing RPG |
-| [craftmind-studio](https://github.com/CedarBeach2019/craftmind-studio) | 🎬 AI filmmaking engine |
-| [craftmind-courses](https://github.com/CedarBeach2019/craftmind-courses) | 📚 In-game learning system |
-| [craftmind-researcher](https://github.com/CedarBeach2019/craftmind-researcher) | 🔬 AI research assistant |
-| [craftmind-herding](https://github.com/CedarBeach2019/craftmind-herding) | 🐑 Livestock herding AI |
-| [craftmind-circuits](https://github.com/CedarBeach2019/craftmind-circuits) | ⚡ Redstone circuit design |
-| [**craftmind-ranch**](https://github.com/CedarBeach2019/craftmind-ranch) | 🌾 Genetic animal breeding |
-| [craftmind-discgolf](https://github.com/CedarBeach2019/craftmind-discgolf) | 🥏 Disc golf simulation |
 
 ## License
 
-MIT
+MIT · Superinstance & Lucineer (DiGennaro et al.)
